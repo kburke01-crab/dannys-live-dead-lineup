@@ -25,7 +25,7 @@ th{background:#f3e3c6;position:sticky;top:0;cursor:pointer;user-select:none;whit
 <p>Danny Luehring's Grateful Dead band has played every Wednesday since late 2021, first at the Papermill Creek Saloon in Forest Knolls and, since 2024, at Peri's Tavern in Fairfax. It also plays The Deluxe (SF) and HopMonk (Sebastopol). Danny is on drums every week while the rest of the band rotates. This page tracks who has sat in, using public web listings and Instagram posts. It's a work in progress, so send your additions.</p>
 <h3>A short history</h3><ul><li><strong>Late 2021 – 2024:</strong> Wednesdays at the Papermill Creek Saloon, Forest Knolls.</li><li><strong>2024 – now:</strong> Wednesdays at Peri's Tavern, Fairfax.</li></ul></section>
 <section><h2 id="count">Musicians</h2>
-<div class="controls"><label>Search Name<input id="q" placeholder="Name or handle"></label><label>Instrument<select id="inst"></select></label><label>Venue<select id="venue"></select></label><label>Tier<select id="tier"></select></label><label class="msort">Sort by<select id="sort"><option value="3:1">Tier</option><option value="6:-1">Most appearances</option><option value="6:1">Fewest appearances</option><option value="0:1">Name (A–Z)</option><option value="0:-1">Name (Z–A)</option><option value="2:1">Instrument</option></select></label></div>
+<div class="controls"><label>Search Name<input id="q" placeholder="Name or handle"></label><label>Instrument<select id="inst"></select></label><label>Venue<select id="venue"></select></label><label>Tier<select id="tier"></select></label><label class="msort">Sort by (tap to change)<select id="sort"><option value="6:-1">Most appearances</option><option value="3:1">Tier</option><option value="6:1">Fewest appearances</option><option value="0:1">Name (A–Z)</option><option value="0:-1">Name (Z–A)</option><option value="2:1">Instrument</option></select></label></div>
 <table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table>
 <p class="small">Core rotation means a regular, frequently listed player. Guest means a repeat or notable sit-in. One-time means only one dated appearance was found. Unconfirmed means a handle or name came up but the person or role isn't verified.</p>
 <p class="small">"# of Appearances" counts the separate dated appearances in these sources, including other venues. A "+" means the source describes a range of dates, so the real number is higher. "—" means the source didn't say. One web source spells John Varn as "John Vorn", Garrett Deloian as "Deloin" and Greg Loiacono as "Loiciano".</p></section>
@@ -105,7 +105,7 @@ const COLS=[
  {l:'# of Appearances',k:cnt,num:1},
  {l:'Source',k:r=>r.sl.toLowerCase()},
 ];
-let sk=3,sd=1;
+let sk=3,sd=1;if(window.matchMedia('(max-width:700px)').matches){sk=6;sd=-1;}
 function report(){try{parent.postMessage({type:'dld-height',height:document.documentElement.scrollHeight},'*')}catch(e){}}
 function head(){$('hd').innerHTML=COLS.map((c,k)=>'<th data-k="'+k+'"'+(c.num?' class="num"':'')+' aria-sort="'+(k===sk?(sd>0?'ascending':'descending'):'none')+'">'+esc(c.l)+' <span class="ar">'+(k===sk?(sd>0?'▲':'▼'):'')+'</span></th>').join('');}
 $('hd').addEventListener('click',e=>{const th=e.target.closest('th');if(!th)return;const k=+th.dataset.k;if(k===sk)sd=-sd;else{sk=k;sd=COLS[k].num?-1:1;}draw();});
