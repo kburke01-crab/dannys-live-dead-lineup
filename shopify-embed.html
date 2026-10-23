@@ -1,0 +1,14 @@
+<p>A fan-made list of the musicians who've rotated through Danny's Live Dead at Peri's Tavern (Fairfax) and the Papermill Creek Saloon (Forest Knolls). Know someone we missed? Comment on our post or DM <a href="https://www.instagram.com/fairfaxsober/" target="_blank" rel="noopener">@fairfaxsober</a></p>
+<div style="width:100vw;position:relative;left:50%;margin-left:-50vw;padding:0 24px;box-sizing:border-box;">
+  <iframe id="dld-frame" src="https://kburke01-crab.github.io/dannys-live-dead-lineup/" title="Danny's Live Dead: The Rotating Lineup" style="width:100%;height:2400px;border:0;display:block;" loading="lazy"></iframe>
+</div>
+<p><a href="https://kburke01-crab.github.io/dannys-live-dead-lineup/" target="_blank" rel="noopener">Open the full-screen lineup</a></p>
+<script>
+window.addEventListener('message',function(e){
+  if(e.origin!=='https://kburke01-crab.github.io')return;
+  var d=e.data;
+  if(!d||d.type!=='dld-height'||typeof d.height!=='number')return;
+  var f=document.getElementById('dld-frame');
+  if(f)f.style.height=Math.ceil(d.height)+'px';
+});
+</script>

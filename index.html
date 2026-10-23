@@ -7,16 +7,17 @@
 header{background:linear-gradient(135deg,#7a2e1d,#b4462b 45%,#e0a43a);color:#fff8ec;padding:2.5rem 1.2rem 2rem;text-align:center}
 header h1{margin:.2rem 0;font-size:clamp(1.8rem,6vw,3rem);letter-spacing:.02em}header p{margin:.3rem auto;max-width:40rem;opacity:.95}
 .badge{display:inline-block;font:600 .75rem system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;border:1px solid #fff8ec;border-radius:99px;padding:.2rem .7rem}
-main{max-width:72rem;margin:0 auto;padding:1rem}section{background:var(--card);border-radius:14px;padding:1.2rem;margin:1rem 0;box-shadow:0 2px 10px #7a2e1d18}
+main{max-width:1600px;width:100%;margin:0 auto;padding:1rem}section{background:var(--card);border-radius:14px;padding:1.2rem;margin:1rem 0;box-shadow:0 2px 10px #7a2e1d18}
 h2{color:var(--rust);margin-top:0}a{color:var(--teal)}
 .controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin-bottom:.8rem}
 .controls label{font:600 .8rem system-ui,sans-serif;display:flex;flex-direction:column;gap:.2rem}
 input,select{font:1rem system-ui,sans-serif;padding:.55rem;border:1px solid #c9b79c;border-radius:8px;background:#fff}
 table{width:100%;border-collapse:collapse;font:.9rem system-ui,sans-serif}th,td{text-align:left;padding:.5rem;border-bottom:1px solid #eadcc4;vertical-align:top}
-th{background:#f3e3c6;position:sticky;top:0}.tag{font-size:.75rem;padding:.1rem .45rem;border-radius:99px;background:#f3e3c6;white-space:nowrap}
+th{background:#f3e3c6;position:sticky;top:0;cursor:pointer;user-select:none;white-space:nowrap}th:hover{background:#ecd5ad}th .ar{display:inline-block;width:1em;color:var(--rust)}td.num{text-align:right;white-space:nowrap}th.num{text-align:right}.tag{font-size:.75rem;padding:.1rem .45rem;border-radius:99px;background:#f3e3c6;white-space:nowrap}
 .cta{background:var(--teal);color:#fff}.cta a{color:#ffe7b0;font-weight:700}.btn{display:inline-block;background:var(--gold);color:#2b1d14!important;padding:.6rem 1rem;border-radius:99px;text-decoration:none;margin-top:.4rem}
 .small{font-size:.85rem;opacity:.85}footer{text-align:center;padding:2rem 1rem;font-size:.85rem;opacity:.8}
-@media(max-width:700px){thead{display:none}table,tbody,tr,td{display:block}tr{border:1px solid #eadcc4;border-radius:10px;margin:.6rem 0;padding:.4rem;background:#fff}td{border:0;padding:.2rem .4rem}td::before{content:attr(data-l)": ";font-weight:700;color:var(--rust)}}
+@media(min-width:701px){td:nth-child(2){white-space:nowrap}}
+@media(max-width:700px){td.num{text-align:left}thead{display:none}table,tbody,tr,td{display:block}tr{border:1px solid #eadcc4;border-radius:10px;margin:.6rem 0;padding:.4rem;background:#fff}td{border:0;padding:.2rem .4rem}td::before{content:attr(data-l)": ";font-weight:700;color:var(--rust)}}
 </style></head><body>
 <header><span class="badge">Every Wednesday · Marin County</span><h1>Danny's Live Dead</h1><p><em>The Rotating Lineup</em></p></header>
 <main>
@@ -24,10 +25,10 @@ th{background:#f3e3c6;position:sticky;top:0}.tag{font-size:.75rem;padding:.1rem 
 <p>Danny Luehring's Grateful Dead band has played every Wednesday since late 2021, first at the Papermill Creek Saloon in Forest Knolls and, since 2024, at Peri's Tavern in Fairfax. It also plays The Deluxe (SF) and HopMonk (Sebastopol). Danny is on drums every week while the rest of the band rotates. This page tracks who has sat in, using public web listings and Instagram posts. It's a work in progress, so send your additions.</p>
 <h3>A short history</h3><ul><li><strong>Late 2021 – 2024:</strong> Wednesdays at the Papermill Creek Saloon, Forest Knolls.</li><li><strong>2024 – now:</strong> Wednesdays at Peri's Tavern, Fairfax.</li></ul></section>
 <section><h2 id="count">Musicians</h2>
-<div class="controls"><label>Search<input id="q" placeholder="Name, handle, venue, date"></label><label>Tier<select id="tier"></select></label><label>Instrument<select id="inst"></select></label><label>Sort by<select id="sort"><option value="tier">Tier</option><option value="name">Name</option><option value="count">Most appearances</option><option value="inst">Instrument</option></select></label></div>
-<table><thead><tr><th>Name</th><th>Instagram</th><th>Instrument</th><th>Tier</th><th>Venues</th><th>Dates</th><th># found</th><th>Source</th></tr></thead><tbody id="tb"></tbody></table>
+<div class="controls"><label>Search Name<input id="q" placeholder="Name or handle"></label><label>Instrument<select id="inst"></select></label><label>Venue<select id="venue"></select></label><label>Tier<select id="tier"></select></label></div>
+<table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table>
 <p class="small">Core rotation means a regular, frequently listed player. Guest means a repeat or notable sit-in. One-time means only one dated appearance was found. Unconfirmed means a handle or name came up but the person or role isn't verified.</p>
-<p class="small">"# found" counts the separate dated appearances in these sources, including other venues. A "+" means the source describes a range of dates, so the real number is higher. "—" means the source didn't say. One web source spells John Varn as "John Vorn", Garrett Deloian as "Deloin" and Greg Loiacono as "Loiciano".</p></section>
+<p class="small">"# of Appearances" counts the separate dated appearances in these sources, including other venues. A "+" means the source describes a range of dates, so the real number is higher. "—" means the source didn't say. One web source spells John Varn as "John Vorn", Garrett Deloian as "Deloin" and Greg Loiacono as "Loiciano".</p></section>
 <section><h2>Gaps we want to fill</h2><p><strong>The Papermill years (late 2021 to 2024) are thin.</strong> Only a few lineups from that era are documented, such as 3/27/24. JamBase listings cut off after a few names.</p>
 <p>@dannyslivedead has 0 posts, so there's no official band archive on Instagram. The oldest posts on @danny_luehring and @peristavern weren't scanned. Many entries are missing an instrument, and the four handle-only names still need to be matched to real people. Facebook events, YouTube, archive.org and the Marin IJ haven't been searched in depth. About 150+ shows have happened, so this list is only a sample.</p></section>
 <section class="cta"><h2 style="color:#ffe7b0">Know someone we missed?</h2><p>Played a Wednesday, or have a photo or setlist with names? Comment on the @fairfaxsober Instagram post or send a DM to @fairfaxsober with the name, instrument, date and venue.</p><a class="btn" href="https://www.instagram.com/fairfaxsober/" target="_blank" rel="noopener">Message @fairfaxsober on Instagram</a></section>
@@ -85,16 +86,39 @@ const rows = [
  R('Dave A. Bear','dave_a_bear','—',U,"Mentioned in a Peri's podcast post",'—','0',IG('peristavern/p/DMQz3X7zqVP/')),
 ];
 const TIERS = ['Leader', C, G, O, U];
-const cnt = (r) => r.c === 'All' ? 999 : (parseInt(r.c) || 0);
+const VN = {"Papermill":"Papermill Creek Saloon","Peri's":"Peri's Tavern","Deluxe":"The Deluxe","HopMonk":"HopMonk","Balboa":"Balboa Theater","Balboa Theater SF":"Balboa Theater","Fairfax Festival":"Fairfax Festival"};
+const venuesOf = (r) => r.v.split(',').map(x=>VN[x.trim()]).filter(Boolean);
+const cnt = (r) => r.c === 'All' ? Infinity : (parseInt(r.c) || 0);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const $=id=>document.getElementById(id);
-$('tier').innerHTML=['All',...TIERS].map(t=>'<option>'+esc(t)+'</option>').join('');
-$('inst').innerHTML=['All',...[...new Set(rows.map(r=>r.i))].sort()].map(t=>'<option>'+esc(t)+'</option>').join('');
-const L=['Name','Instagram','Instrument','Tier','Venues','Dates','# found','Source'];
-function draw(){const q=$('q').value.toLowerCase(),t=$('tier').value,i=$('inst').value,s=$('sort').value;
-const out=rows.filter(r=>(t==='All'||r.t===t)&&(i==='All'||r.i===i)&&(r.n+' '+r.h+' '+r.v+' '+r.d).toLowerCase().includes(q))
-.sort((a,b)=>s==='name'?a.n.localeCompare(b.n):s==='count'?cnt(b)-cnt(a):s==='inst'?a.i.localeCompare(b.i):(TIERS.indexOf(a.t)-TIERS.indexOf(b.t))||cnt(b)-cnt(a));
+const opts=(id,list)=>$(id).innerHTML=['All',...list].map(t=>'<option>'+esc(t)+'</option>').join('');
+opts('inst',[...new Set(rows.map(r=>r.i))].sort());
+opts('venue',[...new Set(rows.flatMap(venuesOf))].sort((a,b)=>a.localeCompare(b)));
+opts('tier',TIERS);
+const COLS=[
+ {l:'Name',k:r=>r.n.toLowerCase()},
+ {l:'Instagram',k:r=>r.h?r.h.toLowerCase():'\uffff'},
+ {l:'Instrument',k:r=>r.i==='—'?'\uffff':r.i.toLowerCase()},
+ {l:'Tier',k:r=>TIERS.indexOf(r.t)},
+ {l:'Venues',k:r=>r.v.toLowerCase()},
+ {l:'Dates',k:r=>r.d.toLowerCase()},
+ {l:'# of Appearances',k:cnt,num:1},
+ {l:'Source',k:r=>r.sl.toLowerCase()},
+];
+let sk=3,sd=1;
+function report(){try{parent.postMessage({type:'dld-height',height:document.documentElement.scrollHeight},'*')}catch(e){}}
+function head(){$('hd').innerHTML=COLS.map((c,k)=>'<th data-k="'+k+'"'+(c.num?' class="num"':'')+' aria-sort="'+(k===sk?(sd>0?'ascending':'descending'):'none')+'">'+esc(c.l)+' <span class="ar">'+(k===sk?(sd>0?'▲':'▼'):'')+'</span></th>').join('');}
+$('hd').addEventListener('click',e=>{const th=e.target.closest('th');if(!th)return;const k=+th.dataset.k;if(k===sk)sd=-sd;else{sk=k;sd=COLS[k].num?-1:1;}draw();});
+function draw(){const q=$('q').value.toLowerCase().trim(),t=$('tier').value,i=$('inst').value,v=$('venue').value;
+const key=COLS[sk].k;
+const out=rows.filter(r=>(t==='All'||r.t===t)&&(i==='All'||r.i===i)&&(v==='All'||venuesOf(r).includes(v))&&(r.n+' '+r.h).toLowerCase().includes(q))
+.sort((a,b)=>{const x=key(a),y=key(b);let d=typeof x==='number'?(x===y?0:x<y?-1:1):String(x).localeCompare(String(y));if(!d)d=(cnt(b)-cnt(a)||0)||a.n.localeCompare(b.n);else d*=sd;return d;});
+head();
 $('count').textContent='Musicians ('+out.length+' of '+rows.length+')';
-$('tb').innerHTML=out.map(r=>[esc(r.n),r.h?'<a href="https://www.instagram.com/'+esc(r.h)+'/" target="_blank" rel="noopener">@'+esc(r.h)+'</a>':'—',esc(r.i),'<span class="tag">'+esc(r.t)+'</span>',esc(r.v),esc(r.d),esc(r.c),'<a href="'+esc(r.s)+'" target="_blank" rel="noopener">'+esc(r.sl)+'</a>'].map((c,k)=>'<td data-l="'+L[k]+'">'+c+'</td>').join('')).map(x=>'<tr>'+x+'</tr>').join('');}
-['q','tier','inst','sort'].forEach(id=>$(id).addEventListener('input',draw));draw();
+$('tb').innerHTML=out.map(r=>[esc(r.n),r.h?'<a href="https://www.instagram.com/'+esc(r.h)+'/" target="_blank" rel="noopener">@'+esc(r.h)+'</a>':'—',esc(r.i),'<span class="tag">'+esc(r.t)+'</span>',esc(r.v),esc(r.d),esc(r.c),'<a href="'+esc(r.s)+'" target="_blank" rel="noopener">'+esc(r.sl)+'</a>'].map((c,k)=>'<td data-l="'+COLS[k].l+'"'+(COLS[k].num?' class="num"':'')+'>'+c+'</td>').join('')).map(x=>'<tr>'+x+'</tr>').join('');
+requestAnimationFrame(report);}
+['q','tier','inst','venue'].forEach(id=>{$(id).addEventListener('input',draw);$(id).addEventListener('change',draw);});
+window.addEventListener('load',report);window.addEventListener('resize',report);
+if(window.ResizeObserver)new ResizeObserver(report).observe(document.body);
+draw();
 </script></body></html>
