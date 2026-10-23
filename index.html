@@ -1,0 +1,100 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Danny's Live Dead: The Rotating Lineup</title>
+<meta name="description" content="A fan-made, crowdsourced list of the musicians who've played with Danny's Live Dead in Marin.">
+<style>
+:root{--bg:#fbf3e4;--ink:#2b1d14;--rust:#b4462b;--teal:#1f6f6b;--gold:#e0a43a;--card:#fffaf0}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 Georgia,"Iowan Old Style",serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#7a2e1d,#b4462b 45%,#e0a43a);color:#fff8ec;padding:2.5rem 1.2rem 2rem;text-align:center}
+header h1{margin:.2rem 0;font-size:clamp(1.8rem,6vw,3rem);letter-spacing:.02em}header p{margin:.3rem auto;max-width:40rem;opacity:.95}
+.badge{display:inline-block;font:600 .75rem system-ui,sans-serif;letter-spacing:.15em;text-transform:uppercase;border:1px solid #fff8ec;border-radius:99px;padding:.2rem .7rem}
+main{max-width:72rem;margin:0 auto;padding:1rem}section{background:var(--card);border-radius:14px;padding:1.2rem;margin:1rem 0;box-shadow:0 2px 10px #7a2e1d18}
+h2{color:var(--rust);margin-top:0}a{color:var(--teal)}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin-bottom:.8rem}
+.controls label{font:600 .8rem system-ui,sans-serif;display:flex;flex-direction:column;gap:.2rem}
+input,select{font:1rem system-ui,sans-serif;padding:.55rem;border:1px solid #c9b79c;border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;font:.9rem system-ui,sans-serif}th,td{text-align:left;padding:.5rem;border-bottom:1px solid #eadcc4;vertical-align:top}
+th{background:#f3e3c6;position:sticky;top:0}.tag{font-size:.75rem;padding:.1rem .45rem;border-radius:99px;background:#f3e3c6;white-space:nowrap}
+.cta{background:var(--teal);color:#fff}.cta a{color:#ffe7b0;font-weight:700}.btn{display:inline-block;background:var(--gold);color:#2b1d14!important;padding:.6rem 1rem;border-radius:99px;text-decoration:none;margin-top:.4rem}
+.small{font-size:.85rem;opacity:.85}footer{text-align:center;padding:2rem 1rem;font-size:.85rem;opacity:.8}
+@media(max-width:700px){thead{display:none}table,tbody,tr,td{display:block}tr{border:1px solid #eadcc4;border-radius:10px;margin:.6rem 0;padding:.4rem;background:#fff}td{border:0;padding:.2rem .4rem}td::before{content:attr(data-l)": ";font-weight:700;color:var(--rust)}}
+</style></head><body>
+<header><span class="badge">Every Wednesday · Marin County</span><h1>Danny's Live Dead</h1><p><em>The Rotating Lineup</em></p></header>
+<main>
+<section><h2>About</h2>
+<p>Danny Luehring's Grateful Dead band has played every Wednesday since late 2021, first at the Papermill Creek Saloon in Forest Knolls and, since 2024, at Peri's Tavern in Fairfax. It also plays The Deluxe (SF) and HopMonk (Sebastopol). Danny is on drums every week while the rest of the band rotates. This page tracks who has sat in, using public web listings and Instagram posts. It's a work in progress, so send your additions.</p>
+<h3>A short history</h3><ul><li><strong>Late 2021 – 2024:</strong> Wednesdays at the Papermill Creek Saloon, Forest Knolls.</li><li><strong>2024 – now:</strong> Wednesdays at Peri's Tavern, Fairfax.</li></ul></section>
+<section><h2 id="count">Musicians</h2>
+<div class="controls"><label>Search<input id="q" placeholder="Name, handle, venue, date"></label><label>Tier<select id="tier"></select></label><label>Instrument<select id="inst"></select></label><label>Sort by<select id="sort"><option value="tier">Tier</option><option value="name">Name</option><option value="count">Most appearances</option><option value="inst">Instrument</option></select></label></div>
+<table><thead><tr><th>Name</th><th>Instagram</th><th>Instrument</th><th>Tier</th><th>Venues</th><th>Dates</th><th># found</th><th>Source</th></tr></thead><tbody id="tb"></tbody></table>
+<p class="small">Core rotation means a regular, frequently listed player. Guest means a repeat or notable sit-in. One-time means only one dated appearance was found. Unconfirmed means a handle or name came up but the person or role isn't verified.</p>
+<p class="small">"# found" counts the separate dated appearances in these sources, including other venues. A "+" means the source describes a range of dates, so the real number is higher. "—" means the source didn't say. One web source spells John Varn as "John Vorn", Garrett Deloian as "Deloin" and Greg Loiacono as "Loiciano".</p></section>
+<section><h2>Gaps we want to fill</h2><p><strong>The Papermill years (late 2021 to 2024) are thin.</strong> Only a few lineups from that era are documented, such as 3/27/24. JamBase listings cut off after a few names.</p>
+<p>@dannyslivedead has 0 posts, so there's no official band archive on Instagram. The oldest posts on @danny_luehring and @peristavern weren't scanned. Many entries are missing an instrument, and the four handle-only names still need to be matched to real people. Facebook events, YouTube, archive.org and the Marin IJ haven't been searched in depth. About 150+ shows have happened, so this list is only a sample.</p></section>
+<section class="cta"><h2 style="color:#ffe7b0">Know someone we missed?</h2><p>Played a Wednesday, or have a photo or setlist with names? Comment on the @fairfaxsober Instagram post or send a DM to @fairfaxsober with the name, instrument, date and venue.</p><a class="btn" href="https://www.instagram.com/fairfaxsober/" target="_blank" rel="noopener">Message @fairfaxsober on Instagram</a></section>
+<section><h2>Sources</h2><p>Instagram: <a href="https://www.instagram.com/danny_luehring/">@danny_luehring</a> and <a href="https://www.instagram.com/peristavern/">@peristavern</a>. Each row links its example post.</p><p class="small">Web: Web: <a href="https://www.gratefulweb.com/articles/dannys-live-dead-welcomes-skeleton-krewe-trio-on-board-for-an-epic-throwdown-at-peris/">Grateful Web (Oct 2024)</a> · <a href="https://www.tedtoob.com/2026-0311-dannys-live-dead-at-peris-fairfax-1">tedtoob 3/11/26</a> · <a href="https://www.gdbarkin.com/post/photo-gallery-danny-s-live-dead-at-peri-s-in-fairfax">gdbarkin 6/24/26</a> · <a href="https://www.gdbarkin.com/post/photo-gallery-danny-s-live-dead-at-peri-s">gdbarkin 7/29/26</a> · <a href="https://www.bandsintown.com/e/108628535-grahame-lesh-at-peri's-saloon">Bandsintown 7/8/26</a> · <a href="https://matthartlemusic.com/event/6658258/771551221/danny-s-live-dead-at-peri-s-in-fairfax">Matt Hartle 7/15/26</a> · <a href="https://matthartlemusic.com/event/6777731/784505646/with-danny-s-live-dead-at-peri-s-in-fairfax">Matt Hartle 10/14/26</a> · <a href="https://www.eventim.us/event/dannys-live-dead-or-sunday-matinee-series/703180">Eventim HopMonk 11/29/26</a> · <a href="https://offbeatsf.com/event/dannys-live-dead/2026-11-15/">OffbeatSF</a> · <a href="https://www.jambase.com/band/grahame-lesh/setlists/2024">JamBase (Papermill 3/27/24)</a> · <a href="https://www.jambase.com/concerts/us/california/genres/jazz-concerts/page/34?date-first=20230313&amp;date-last=20260529">JamBase listings</a></p><p class="small">Not counted: the A Night of the Living Dead lineup (The Chapel, 10/29/26), because it's billed as a different act.</p></section>
+</main>
+<footer>A fan-made list by <a href="https://www.instagram.com/fairfaxsober/">@fairfaxsober</a>. Not affiliated with the band or the venues.<br>Last updated Oct 23, 2026</footer>
+<script>
+const IG = (id) => id.startsWith('peristavern/') ? `https://www.instagram.com/${id}` : `https://www.instagram.com/danny_luehring/p/${id}/`;
+const R = (n,h,i,t,v,d,c,s,sl="Instagram") => ({n,h,i,t,v,d,c,s,sl});
+const C = 'Core rotation', G = 'Guest', O = 'One-time', U = 'Unconfirmed';
+const GW = 'https://www.gratefulweb.com/articles/dannys-live-dead-welcomes-skeleton-krewe-trio-on-board-for-an-epic-throwdown-at-peris/';
+const rows = [
+ R('Danny Luehring (leader)','danny_luehring','drums','Leader',"Papermill, Peri's, Deluxe, HopMonk",'Every Wednesday','All',IG('DH2eeFdRDZv')),
+ R('Garrett Deloian','gdeloian','guitar',C,"Peri's, HopMonk, Balboa Theater SF",'Many weeks Oct 2025–Sep 2026 incl. 1/14/26, 5/20, 6/24, 8/12, 9/23/26; HopMonk 11/29/26; Balboa Aug 1–3 2025','7+',IG('DdaPafdh0nJ')),
+ R('Angeline Saris','angelinesaris','bass',C,"Peri's",'10/22/25, 1/14/26, 3/2026 (incl. 3/11), 6/10, 6/17, 6/24, 7/8, 7/29, 9/16, 10/14/26','11',IG('DdU1o8sP0S3')),
+ R('Brian Rashap','brashap','bass',C,"Peri's, HopMonk, Balboa",'3/26/25 through 9/2026; HopMonk 6/13/25, 6/20/26, 11/29/26; Balboa Aug 2025','5+',IG('DH2eeFdRDZv')),
+ R('Mookie Siegel','mookiesiegel','keys',C,"Papermill, Peri's",'3/26/25, 10/22/25, 1/2026, 3/18/26, 4/22/26; Papermill era (JamBase)','6',IG('DH2eeFdRDZv')),
+ R('Alex Koford','alexkoford_music','keys/vocals',C,"Peri's, HopMonk",'NYE 12/31/25, 6/10, 7/8, 7/29, 9/16/26; HopMonk 6/20/26','6',IG('DbVe4Q-B9Pz')),
+ R('Jason Crosby','jasoncrosbymusic','keys/violin',C,"Peri's",'1/14/26, 7/8, 7/15, 7/22, 7/29, 9/2, 9/16/26','7',IG('DbVe4Q-B9Pz')),
+ R('Danny Eisenberg','dannyeisenberg7','keys',C,"Peri's, HopMonk",'NYE 2025, Mar 2026, Aug 2026, 10/14/26; HopMonk 11/29/26','5',IG('DcbCNRrBj_k')),
+ R('Scott Law','scottlawmusic','guitar',C,"Peri's, Fairfax Festival, HopMonk",'3/26/25, Nov–Dec 2025, 3/11/26, 5/27/26; Fairfax Festival 6/2025; HopMonk 6/20/26','6',IG('DH2eeFdRDZv')),
+ R('Jonny Mojo','jonnymojomusic','guitar',C,"Papermill, Peri's",'Papermill 3/27/24; 3/26/25, 10/22/25, Nov 2025, Feb 2026','5',IG('DH2eeFdRDZv')),
+ R('Matt Hartle','matthartle831','guitar',C,"Peri's",'11/2025, 2/2026, 6/10, 7/15, 8/5, 9/2, 10/14/26','7',IG('DZXf1o_hfBI')),
+ R('Mike Emerson','mikeemerson','keys',C,"Peri's",'10/2025–3/2026, 3/11/26','2+',IG('peristavern/reel/DWSKxxnAVYR/')),
+ R('JP McLean','jpmclean.bass','bass',C,"Papermill, Peri's",'10/16/24, 1/2026, 7/15, 8/19/26; Papermill (undated)','4',IG('DcJ6jfkyLbx')),
+ R('Scott Guberman','scottguberman','keys',C,"Peri's, HopMonk",'1/2026, 8/5, 8/19/26; HopMonk 6/20/26','4',IG('Dbl4RHbSUMw')),
+ R('Greg Loiacono','gregloiacono','guitar',C,"Peri's",'3/11/26, 5/27, 6/28, 9/23/26','4',IG('DaIlhZEBGbH')),
+ R('John Varn','john_varn_','keys',C,"Peri's",'5/20, 6/24, 8/12, 9/23/26','4',IG('DbyzLO0SmwO')),
+ R('Stephen Inglis','stepheninglis','guitar',G,"Papermill, Peri's, Balboa",'3–4 Papermill shows; 10/16/24, 5/2025, 3/18/26, 4/22/26; Balboa 8/2025','8+',IG('DVzurP9guOU')),
+ R('Grahame Lesh','grahamelesh','guitar',G,"Peri's, Fairfax Festival",'NYE 12/31/25, 7/8/26; Fairfax Festival 2025','3',IG('DaesPvIBdpJ')),
+ R('Barry Sless','barryslessmusic','guitar/pedal steel',G,"Peri's",'10/16/24, 3/18/26, 4/22/26','3',IG('DXaBo-oAkE6')),
+ R('Pete Sears','petesears6717','—',G,"Peri's",'3/18/26, 4/22/26','2',IG('DXaBo-oAkE6')),
+ R('Reed Mathis','reedmathis','bass',G,"Papermill, Peri's",'Papermill 3/27/24; 7/22/26','2',IG('DbCqGx6BX3l')),
+ R('Lebo (Dan Lebowitz)','lebo_tone','guitar',G,"Peri's",'7/29, 9/16/26','2',IG('DbVe4Q-B9Pz')),
+ R('Steve Adams','','bass',G,'Past player since late 2021 (venue unspecified)','No dated show found','0',GW,'Grateful Web'),
+ R('Sam Grisman','','bass',G,'Past player 2021–24 (venue unspecified)','No dated show found','0',GW,'Grateful Web'),
+ R('Leslie Mendelson','lesliemendelson','—',O,"Peri's",'7/22/26','1',IG('DbCqGx6BX3l')),
+ R('Rob Barraco','','keys/vocals',O,"Peri's",'10/16/24','1',GW,'Grateful Web'),
+ R('Joe Marcinek','joemarcinekband','—',O,"Peri's",'10/22/25','1',IG('peristavern/p/DQIM8IrEudk/')),
+ R("Tommy O'Mahony",'','—',O,"Peri's",'10/2025','1',IG('peristavern/p/DOcANqQEivL/')),
+ R('Matt Lazarus','mattlazarusmusic','—',O,"Peri's",'10/2025','1',IG('peristavern/p/DPmjfjKgVwS/')),
+ R('Murph Murphy','murph.murphy.7','—',O,"Peri's",'4/2025','1',IG('peristavern/p/DI9NqwIzD2U/')),
+ R('Nate LaPointe','natelapointe','—',O,"Peri's",'3/2026','1',IG('peristavern/reel/DWmnYKVEtUx/')),
+ R('Ed Lyon','ed_lyon_music','—',O,"Peri's",'3/2026','1',IG('peristavern/reel/DWmnYKVEtUx/')),
+ R('Mark Karan','markkaran','—',O,"Peri's",'2/2026','1',IG('peristavern/reel/DU6a0DQAp8s/')),
+ R('Jon Chi','jonchimusic','—',O,"Peri's",'2/2026','1',IG('peristavern/reel/DU6a0DQAp8s/')),
+ R('Paige Clem','heypaigeclem','—',O,"Peri's",'1/7/26 (Jerry Garcia Band tribute night)','1',IG('peristavern/reel/DTNyQCvFeRZ/')),
+ R('Teal Collins','tealcollinsart','—',O,"Peri's",'1/7/26 (Jerry Garcia Band tribute night)','1',IG('peristavern/reel/DTNyQCvFeRZ/')),
+ R('Nick Sandoval','nicksandoval','—',O,"Peri's",'1/2026','1',IG('peristavern/reel/DTybbndkjXK/')),
+ R('Bella Rayne','bella_rayne','vocals',O,'Fairfax Festival','6/2025','1',IG('DKpmLuqy1m5')),
+ R('Connor Kennedy','','guitar/vocals',U,'Listed in rotation (possible)','No dated show found','0','https://offbeatsf.com/event/dannys-live-dead/2026-11-15/','OffbeatSF'),
+ R('(handle only)','notgoodguy','—',U,"Peri's",'9/23/26','1',IG('DdaPafdh0nJ')),
+ R('(handle only)','stevealo','—',U,"Peri's",'8/12/26','1',IG('DbyzLO0SmwO')),
+ R('(handle only)','introburted','—',U,"Peri's",'3/2026','1',IG('peristavern/reel/DWSKxxnAVYR/')),
+ R('Dave A. Bear','dave_a_bear','—',U,"Mentioned in a Peri's podcast post",'—','0',IG('peristavern/p/DMQz3X7zqVP/')),
+];
+const TIERS = ['Leader', C, G, O, U];
+const cnt = (r) => r.c === 'All' ? 999 : (parseInt(r.c) || 0);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id);
+$('tier').innerHTML=['All',...TIERS].map(t=>'<option>'+esc(t)+'</option>').join('');
+$('inst').innerHTML=['All',...[...new Set(rows.map(r=>r.i))].sort()].map(t=>'<option>'+esc(t)+'</option>').join('');
+const L=['Name','Instagram','Instrument','Tier','Venues','Dates','# found','Source'];
+function draw(){const q=$('q').value.toLowerCase(),t=$('tier').value,i=$('inst').value,s=$('sort').value;
+const out=rows.filter(r=>(t==='All'||r.t===t)&&(i==='All'||r.i===i)&&(r.n+' '+r.h+' '+r.v+' '+r.d).toLowerCase().includes(q))
+.sort((a,b)=>s==='name'?a.n.localeCompare(b.n):s==='count'?cnt(b)-cnt(a):s==='inst'?a.i.localeCompare(b.i):(TIERS.indexOf(a.t)-TIERS.indexOf(b.t))||cnt(b)-cnt(a));
+$('count').textContent='Musicians ('+out.length+' of '+rows.length+')';
+$('tb').innerHTML=out.map(r=>[esc(r.n),r.h?'<a href="https://www.instagram.com/'+esc(r.h)+'/" target="_blank" rel="noopener">@'+esc(r.h)+'</a>':'—',esc(r.i),'<span class="tag">'+esc(r.t)+'</span>',esc(r.v),esc(r.d),esc(r.c),'<a href="'+esc(r.s)+'" target="_blank" rel="noopener">'+esc(r.sl)+'</a>'].map((c,k)=>'<td data-l="'+L[k]+'">'+c+'</td>').join('')).map(x=>'<tr>'+x+'</tr>').join('');}
+['q','tier','inst','sort'].forEach(id=>$(id).addEventListener('input',draw));draw();
+</script></body></html>
