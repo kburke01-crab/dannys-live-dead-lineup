@@ -16,7 +16,7 @@ table{width:100%;border-collapse:collapse;font:.9rem system-ui,sans-serif}th,td{
 th{background:#f3e3c6;position:sticky;top:0;cursor:pointer;user-select:none;white-space:nowrap}th:hover{background:#ecd5ad}th .ar{display:inline-block;width:1em;color:var(--rust)}td.num{text-align:right;white-space:nowrap}th.num{text-align:right}.tag{font-size:.75rem;padding:.1rem .45rem;border-radius:99px;background:#f3e3c6;white-space:nowrap}
 .cta{background:var(--teal);color:#fff}.cta a{color:#ffe7b0;font-weight:700}.btn{display:inline-block;background:var(--gold);color:#2b1d14!important;padding:.6rem 1rem;border-radius:99px;text-decoration:none;margin-top:.4rem}
 .small{font-size:.85rem;opacity:.85}footer{text-align:center;padding:2rem 1rem;font-size:.85rem;opacity:.8}
-@media(min-width:701px){td:nth-child(2){white-space:nowrap}}
+@media(min-width:701px){.msort{display:none!important}td:nth-child(2){white-space:nowrap}}
 @media(max-width:700px){td.num{text-align:left}thead{display:none}table,tbody,tr,td{display:block}tr{border:1px solid #eadcc4;border-radius:10px;margin:.6rem 0;padding:.4rem;background:#fff}td{border:0;padding:.2rem .4rem}td::before{content:attr(data-l)": ";font-weight:700;color:var(--rust)}}
 </style></head><body>
 <header><span class="badge">Every Wednesday · Marin County</span><h1>Danny's Live Dead</h1><p><em>The Rotating Lineup</em></p></header>
@@ -25,7 +25,7 @@ th{background:#f3e3c6;position:sticky;top:0;cursor:pointer;user-select:none;whit
 <p>Danny Luehring's Grateful Dead band has played every Wednesday since late 2021, first at the Papermill Creek Saloon in Forest Knolls and, since 2024, at Peri's Tavern in Fairfax. It also plays The Deluxe (SF) and HopMonk (Sebastopol). Danny is on drums every week while the rest of the band rotates. This page tracks who has sat in, using public web listings and Instagram posts. It's a work in progress, so send your additions.</p>
 <h3>A short history</h3><ul><li><strong>Late 2021 – 2024:</strong> Wednesdays at the Papermill Creek Saloon, Forest Knolls.</li><li><strong>2024 – now:</strong> Wednesdays at Peri's Tavern, Fairfax.</li></ul></section>
 <section><h2 id="count">Musicians</h2>
-<div class="controls"><label>Search Name<input id="q" placeholder="Name or handle"></label><label>Instrument<select id="inst"></select></label><label>Venue<select id="venue"></select></label><label>Tier<select id="tier"></select></label></div>
+<div class="controls"><label>Search Name<input id="q" placeholder="Name or handle"></label><label>Instrument<select id="inst"></select></label><label>Venue<select id="venue"></select></label><label>Tier<select id="tier"></select></label><label class="msort">Sort by<select id="sort"><option value="3:1">Tier</option><option value="6:-1">Most appearances</option><option value="6:1">Fewest appearances</option><option value="0:1">Name (A–Z)</option><option value="0:-1">Name (Z–A)</option><option value="2:1">Instrument</option></select></label></div>
 <table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table>
 <p class="small">Core rotation means a regular, frequently listed player. Guest means a repeat or notable sit-in. One-time means only one dated appearance was found. Unconfirmed means a handle or name came up but the person or role isn't verified.</p>
 <p class="small">"# of Appearances" counts the separate dated appearances in these sources, including other venues. A "+" means the source describes a range of dates, so the real number is higher. "—" means the source didn't say. One web source spells John Varn as "John Vorn", Garrett Deloian as "Deloin" and Greg Loiacono as "Loiciano".</p></section>
@@ -113,10 +113,11 @@ function draw(){const q=$('q').value.toLowerCase().trim(),t=$('tier').value,i=$(
 const key=COLS[sk].k;
 const out=rows.filter(r=>(t==='All'||r.t===t)&&(i==='All'||r.i===i)&&(v==='All'||venuesOf(r).includes(v))&&(r.n+' '+r.h).toLowerCase().includes(q))
 .sort((a,b)=>{const x=key(a),y=key(b);let d=typeof x==='number'?(x===y?0:x<y?-1:1):String(x).localeCompare(String(y));if(!d)d=(cnt(b)-cnt(a)||0)||a.n.localeCompare(b.n);else d*=sd;return d;});
-head();
+head();const so=$('sort'),sv=sk+':'+sd;if([...so.options].some(o=>o.value===sv))so.value=sv;
 $('count').textContent='Musicians ('+out.length+' of '+rows.length+')';
 $('tb').innerHTML=out.map(r=>[esc(r.n),r.h?'<a href="https://www.instagram.com/'+esc(r.h)+'/" target="_blank" rel="noopener">@'+esc(r.h)+'</a>':'—',esc(r.i),'<span class="tag">'+esc(r.t)+'</span>',esc(r.v),esc(r.d),esc(r.c),'<a href="'+esc(r.s)+'" target="_blank" rel="noopener">'+esc(r.sl)+'</a>'].map((c,k)=>'<td data-l="'+COLS[k].l+'"'+(COLS[k].num?' class="num"':'')+'>'+c+'</td>').join('')).map(x=>'<tr>'+x+'</tr>').join('');
 requestAnimationFrame(report);}
+$('sort').addEventListener('change',e=>{const[a,b]=e.target.value.split(':');sk=+a;sd=+b;draw();});
 ['q','tier','inst','venue'].forEach(id=>{$(id).addEventListener('input',draw);$(id).addEventListener('change',draw);});
 window.addEventListener('load',report);window.addEventListener('resize',report);
 if(window.ResizeObserver)new ResizeObserver(report).observe(document.body);
