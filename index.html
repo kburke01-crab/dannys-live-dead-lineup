@@ -33,8 +33,9 @@ th{background:#f3e3c6;position:sticky;top:0;cursor:pointer;user-select:none;whit
 <p class="small">Core rotation means a regular, frequently listed player. Guest means a repeat or notable sit-in. One-time means only one dated appearance was found. Unconfirmed means a handle or name came up but the person or role isn't verified.</p>
 <p class="small">"# of Appearances" counts the separate dated appearances in these sources, including other venues. A "+" means the source describes a range of dates, so the real number is higher. "—" means the source didn't say. One web source spells John Varn as "John Vorn", Garrett Deloian as "Deloin" and Greg Loiacono as "Loiciano".</p></section>
 <section id="showsView" hidden><h2 id="scount">Shows</h2>
-<p class="small">One row per dated show we could find, newest first. Danny is on drums at every show, so he isn't listed. Every lineup here is partial: it only includes the people a source names for that night. Tap a name to see that person's entry.</p>
-<table><thead><tr><th>Date</th><th>Venue</th><th>Known lineup (besides Danny)</th><th>Status</th><th>Sources</th></tr></thead><tbody id="stb"></tbody></table>
+<p class="small">One row per dated show we could find, newest first. Danny is on drums at every show, so he isn't listed. Every lineup here is partial: it only includes the people a source names for that night. Tap a name to see that person's entry. Player sources link each player's own entry source, which may not be from that night.</p>
+<p class="small">Show counts can be lower than People appearances, because month-only dates can't be tied to a show.</p>
+<table><thead><tr><th>Date</th><th>Venue</th><th>Known lineup (besides Danny)</th><th>Status</th><th>Video links</th><th>Player sources</th></tr></thead><tbody id="stb"></tbody></table>
 <h2 style="margin-top:1.4rem">Stats</h2><p class="small" id="snote"></p><div class="stats" id="stats"></div></section>
 <section><h2>Gaps we want to fill</h2><p><strong>The Papermill years (late 2021 to 2024) are thin.</strong> Only a few lineups from that era are documented, such as 3/27/24. JamBase listings cut off after a few names.</p>
 <p>@dannyslivedead has 0 posts, so there's no official band archive on Instagram. The oldest posts on @danny_luehring and @peristavern weren't scanned. Many entries are missing an instrument, and the two handle-only names still need to be matched to real people. Facebook events, YouTube, archive.org and the Marin IJ haven't been searched in depth. Well over 200 shows have happened, so this list is only a sample.</p></section>
@@ -112,7 +113,7 @@ const shows = [
  S("2026-07-22","Peri's",["Jason Crosby", "Reed Mathis", "Leslie Mendelson"]),
  S("2026-07-15","Peri's",["Jason Crosby", "Matt Hartle", "JP McLean"]),
  S("2026-07-08","Peri's",["Angeline Saris", "Alex Koford", "Jason Crosby", "Grahame Lesh"]),
- S("2026-06-28","Peri's",["Greg Loiacono"],"Listed as 6/28/26, which is a Sunday; date not double-checked."),
+ S("2026-06-28","Papermill",["Greg Loiacono"],"Venue per Kevin, unverified."),
  S("2026-06-24","Peri's",["Garrett Deloian", "Angeline Saris", "John Varn"]),
  S("2026-06-20","HopMonk",["Brian Rashap", "Alex Koford", "Scott Law", "Scott Guberman"]),
  S("2026-06-17","Peri's",["Angeline Saris"]),
@@ -131,6 +132,27 @@ const shows = [
  S("2024-10-16","Peri's",["JP McLean", "Stephen Inglis", "Barry Sless", "Rob Barraco"]),
  S("2024-03-27","Papermill",["Jonny Mojo", "Reed Mathis"]),
 ];
+// Peri's Tavern YouTube (youtube.com/@peristavern), matched only where the title says Danny's Live Dead and gives this date.
+const YT = {
+ "2026-09-23": ["MwSAZWmTBPY"],
+ "2026-09-16": ["FbX0dMGZma8"],
+ "2026-09-02": ["inwZPCaV_pE"],
+ "2026-08-19": ["N1R2eeWPK1E"],
+ "2026-07-29": ["o7UAFKUQEE8"],
+ "2026-07-22": ["fCWUgyEIsDs"],
+ "2026-07-15": ["vCYqVhFFidQ"],
+ "2026-07-08": ["_sjJQRw9iAw"],
+ "2026-05-27": ["3xk9gO4Akvw"],
+ "2026-05-20": ["TTFBj_KtgXo"],
+ "2026-04-22": ["QPbzUHLQYYc"],
+ "2026-03-18": ["QnogB_yZ9bY"],
+ "2026-03-11": ["FyQCa716ybc"],
+ "2026-01-14": ["7yTGsOTWI-o", "pv4UOyZwvaU"],
+ "2026-01-07": ["Ymh8gx4PI-8"],
+ "2025-12-31": ["I1So8hQhFn0"],
+ "2025-10-22": ["Qd2biw7RmEs"],
+};
+shows.forEach(sh => { sh.youtube = (YT[sh.date]||[]).map(id => 'https://www.youtube.com/watch?v='+id); });
 const TIERS = ['Leader', C, G, O, U];
 const VN = {"Papermill":"Papermill Creek Saloon","Peri's":"Peri's Tavern","Deluxe":"The Deluxe","HopMonk":"HopMonk","Balboa":"Balboa Theater","Balboa Theater SF":"Balboa Theater","Fairfax Festival":"Fairfax Festival"};
 const venuesOf = (r) => r.v.split(',').map(x=>VN[x.trim()]).filter(Boolean);
@@ -181,8 +203,9 @@ function drawShows(){
   const cells = [fmtD(sh.date), esc(VN[sh.venue]||sh.venue),
    sh.lineup.map(x => '<button class="plink" data-p="'+esc(x)+'">'+esc(nameOf(x))+'</button>').join(', ') + (sh.notes ? '<div class="small">'+esc(sh.notes)+'</div>' : ''),
    '<span class="tag">'+st+'</span>',
+   sh.youtube.length ? sh.youtube.map((u,k)=>'<a href="'+esc(u)+'" target="_blank" rel="noopener">YouTube'+(sh.youtube.length>1?' '+(k+1):'')+'</a>').join(' · ') : '—',
    sh.sources.map(o => '<a href="'+esc(o.url)+'" target="_blank" rel="noopener">'+esc(o.label)+'</a>').join(' · ')];
-  const L = ['Date','Venue','Known lineup','Status','Sources'];
+  const L = ['Date','Venue','Known lineup','Status','Video links','Player sources'];
   return '<tr>'+cells.map((c,k)=>'<td data-l="'+L[k]+'">'+c+'</td>').join('')+'</tr>'; }).join('');
  const known = shows.filter(sh => sh.lineup.length);
  const tally = (keyf) => { const m = new Map(); known.forEach(sh => keyf(sh).forEach(k => m.set(k,(m.get(k)||0)+1))); return [...m].filter(([,n])=>n>1).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).slice(0,5); };
